@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package command;
+
+enum CommandType
+{
+	CMD_ZERO_PLACEHOLDER = 0;
+	CMD_ERROR            = 0x0001;
+	CMD_AUTH             = 0x0010;
+	CMD_REPLAY           = 0x0012;
+	CMD_LOGIC            = 0x0060;
+}
+
+message CMD_BASE_CS
+{
+	CommandType cmd = 1;
+	bytes body = 2;
+}
+
+message CMD_BASE_SC
+{
+	CommandType cmd         = 1;
+	int32       ret_code    = 2;
+	bytes       body        = 3;
+}
+
+message CMD_ERROR_SC
+{
+	int32  ret_code = 1;
+	string ret_code_desc = 2;
+}
+
+message CMD_AUTH_CS
+{
+	int32  game_id = 1;
+	string identity_token = 2;
+}
+
+message CMD_AUTH_SC
+{
+	int32  game_id = 1;
+	int32  ret_code = 2;
+	string ret_code_desc = 3;
+	string session_id = 4;
+}
+
+message CMD_REPLAY_CS
+{
+	int32  auth_channel = 1;
+	string account = 2;
+	string session_id = 3;
+}
+
+message CMD_REPLAY_SC
+{
+	int32  ret_code = 1;
+	string ret_code_desc = 2;
+}
+
+message CMD_LOGIC_CS
+{
+	uint32 logic_type = 1;
+	bytes logic_pkg = 2;
+}
+
+message CMD_LOGIC_SC
+{
+	uint32 logic_type = 1;
+	bytes logic_pkg = 2;
+}

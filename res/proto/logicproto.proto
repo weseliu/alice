@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package logic;
+
+enum LogicType
+{
+	LGC_ZERO_PLACEHOLDER = 0;
+
+    LGC_PING = 100;
+	LGC_KICKOFF = 101;
+
+	LGC_ACCOUNT_LOGIN = 200;
+	LGC_ACCOUNT_LOGOUT = 201;
+}
+
+message LGC_PING_CS
+{
+	uint32 client_tick = 1;
+	uint32 last_delay = 2;
+}
+
+message LGC_PING_SC
+{
+	uint32 client_tick = 1;
+}
+
+message LGC_KICKOFF_SC
+{
+	string reason   = 1;
+	string hint_msg = 2;
+}
+
+message LGC_ACCOUNT_LOGIN_CS
+{
+	int32  platform_type    = 1;
+	uint32 client_version   = 2;
+	string client_channel   = 3;
+	int32  operation_type   = 4;
+	string name             = 5;
+	string client_pkg_name  = 6;
+	string client_app_name  = 7;
+	string mobile_type      = 8;
+	string device_id        = 9;
+}
+
+message LGC_ACCOUNT_LOGIN_SC
+{
+	int32  ret_code         = 1;
+	string ret_code_desc    = 2;
+}
+
+message LGC_ACCOUNT_LOGOUT_CS
+{
+}
+
+message LGC_ACCOUNT_LOGOUT_SC
+{
+}
