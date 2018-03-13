@@ -1,7 +1,7 @@
 package websocket
 
 import (
-	"network"
+	"github.com/weseliu/alice/network"
 	"net/http"
 	"github.com/gorilla/websocket"
 	"log"

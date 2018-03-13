@@ -1,8 +1,8 @@
 package network
 
 import (
-	"proto/command"
-	"proto/logic"
+	"github.com/weseliu/alice/proto/command"
+	"github.com/weseliu/alice/proto/logic"
 	"reflect"
 	"github.com/golang/protobuf/proto"
 	"log"

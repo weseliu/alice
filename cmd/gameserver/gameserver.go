@@ -1,9 +1,9 @@
 package main
 
 import (
-	"network"
-	"network/websocket"
-	"proto/command"
+	"github.com/weseliu/alice/network"
+	"github.com/weseliu/alice/network/websocket"
+	"github.com/weseliu/alice/proto/command"
 )
 
 func main() {
